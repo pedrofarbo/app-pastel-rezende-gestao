@@ -1,0 +1,33 @@
+<div class="modal-content">
+    <div class="divider"></div>
+
+    <ion-item>
+        <ion-label position="stacked">Nome: (*)</ion-label>
+        <ion-input required="true" autofocus="true" clearInput [(ngModel)]="funcionario.nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Descrição:</ion-label>
+        <ion-input clearInput [(ngModel)]="funcionario.descricao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label class="select-label">Freela: (*)</ion-label>
+        <ion-select [(ngModel)]="funcionario.freela" okText="Selecionar" cancelText="Fechar">
+            <ion-select-option value=true>Sim</ion-select-option>
+            <ion-select-option value=false>Não</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <div class="divider"></div>
+
+    <ion-label class="warning-msg" *ngIf="!funcionario.nome || !funcionario.freela">Os campos com * são
+        obrigatórios.
+    </ion-label>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button [disabled]="!funcionario.nome || !funcionario.freela" (click)="save()">
+            <ion-icon name="save"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</div>

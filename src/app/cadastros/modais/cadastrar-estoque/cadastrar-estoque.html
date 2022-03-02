@@ -1,0 +1,53 @@
+<div class="modal-content">
+    <div class="divider"></div>
+
+    <ion-item>
+        <ion-label position="stacked">Produto: (*)</ion-label>
+        <ion-input required="true" autofocus="true" clearInput [(ngModel)]="estoque.produto"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label class="select-label">Feira: (*)</ion-label>
+        <ion-select [(ngModel)]="estoque.feira" okText="Selecionar" cancelText="Fechar">
+            <ion-select-option value="cajamar">Cajamar</ion-select-option>
+            <ion-select-option value="santana">Santana de Parnaíba</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label class="select-label">Categoria: (*)</ion-label>
+        <ion-select [(ngModel)]="estoque.categoria" okText="Selecionar" cancelText="Fechar">
+            <ion-select-option value="pasteis">Pastéis</ion-select-option>
+            <ion-select-option value="salgadinhos">Salgadinhos</ion-select-option>
+            <ion-select-option value="ingredientes">Ingredientes</ion-select-option>
+            <ion-select-option value="bebidas">Bebidas</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Descrição:</ion-label>
+        <ion-input clearInput [(ngModel)]="estoque.descricao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Valor de venda: (*)</ion-label>
+        <ion-input (ionInput)="validateNumber('valor', $event.target.value)" type="number" min="0" clearInput [(ngModel)]="estoque.valor"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Quantidade: (*)</ion-label>
+        <ion-input (ionInput)="validateNumber('quantidade', $event.target.value)" type="number" min="1" clearInput [(ngModel)]="estoque.quantidade"></ion-input>
+    </ion-item>
+
+    <div class="divider"></div>
+
+    <ion-label class="warning-msg" *ngIf="!estoque.produto || !estoque.feira || !estoque.categoria || !estoque.valor || !estoque.quantidade">Os campos com * são
+        obrigatórios.
+    </ion-label>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button [disabled]="!estoque.produto || !estoque.feira || !estoque.categoria || !estoque.valor || !estoque.quantidade" (click)="save()">
+            <ion-icon name="save"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</div>

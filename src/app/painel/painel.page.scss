@@ -1,0 +1,55 @@
+.content {
+    background: rgba(254,244,48,1);
+    background: -moz-linear-gradient(top, rgba(254,244,48,1) 0%, rgba(224,112,56,1) 0%, rgba(224,112,56,1) 0%, rgba(224,112,56,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(224,112,56,1)), color-stop(0%, rgba(224,112,56,1)), color-stop(0%, rgba(254,244,48,1)), color-stop(100%, rgba(224,112,56,1)));
+    background: -webkit-linear-gradient(top, rgba(254,244,48,1) 0%, rgba(224,112,56,1) 0%, rgba(224,112,56,1) 0%, rgba(224,112,56,1) 100%);
+    background: -o-linear-gradient(top, rgba(254,244,48,1) 0%, rgba(224,112,56,1) 0%, rgba(224,112,56,1) 0%, rgba(224,112,56,1) 100%);
+    background: -ms-linear-gradient(top, rgba(254,244,48,1) 0%, rgba(224,112,56,1) 0%, rgba(224,112,56,1) 0%, rgba(224,112,56,1) 100%);
+    background: linear-gradient(to bottom, rgba(254,244,48,1) 0%, rgba(254,244,48,1) 0%, rgba(254,244,48,1) 0%, rgba(224,112,56,1) 45%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efac30', endColorstr='#e07038', GradientType=0 );
+    text-align: center;
+}
+
+.scroll-content {
+    overflow: hidden;
+}
+
+.icon-size {
+    width: 50px;
+    height: 50px;
+    font-size: 45px;
+    color: #fff;
+}
+
+ion-content ion-row {
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+ion-content ion-row div {
+    margin-top: 4px;
+}
+
+.divider-logo {
+    padding: 15px;
+}
+
+.divider-footer {
+    padding: 8px;
+}
+
+.divider-menu {
+    padding: 15px;
+}
+
+.logo {
+    margin-top: 25px;
+}
+
+.footer-text {
+    font-size: 11px;
+    font-weight: 500;
+    color: #fff;
+}
+

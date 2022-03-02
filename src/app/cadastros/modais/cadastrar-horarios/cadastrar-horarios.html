@@ -1,0 +1,38 @@
+<div class="modal-content">
+    <div class="divider"></div>
+
+    <ion-item>
+        <ion-label class="select-label">Feira: (*)</ion-label>
+        <ion-select [(ngModel)]="horario.feira" okText="Selecionar" cancelText="Fechar">
+            <ion-select-option value="cajamar">Cajamar</ion-select-option>
+            <ion-select-option value="santana">Santana de Parnaíba</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Descrição: (*)</ion-label>
+        <ion-input clearInput [(ngModel)]="horario.descricao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Hora: (*)</ion-label>
+        <ion-input type="number" min="00" max="24" clearInput required [(ngModel)]="horario.hora"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Minuto: (*)</ion-label>
+        <ion-input type="number" min="00" max="59" clearInput required [(ngModel)]="horario.minuto"></ion-input>
+    </ion-item>
+
+    <div class="divider"></div>
+
+    <ion-label class="warning-msg" *ngIf="!horario.feira || !horario.hora || !horario.minuto">Os campos com * são
+        obrigatórios.
+    </ion-label>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button [disabled]="!horario.feira || !horario.hora || !horario.minuto" (click)="save()">
+            <ion-icon name="save"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</div>
