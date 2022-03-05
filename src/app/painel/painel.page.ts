@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, IonRouterOutlet } from '@ionic/angular';
+import { cleanSession } from 'selenium-webdriver/safari';
 
 @Component({
   selector: 'app-painel',
@@ -24,9 +25,6 @@ export class PainelPage implements OnInit {
 
   navigation(page: string) {
     this.resetState();
-
-    console.log(page);
-    console.log(this.isModalFeirasOpened);
 
     if (page === 'feiras') {
       this.isModalFeirasOpened = true;
@@ -60,9 +58,11 @@ export class PainelPage implements OnInit {
   ionViewDidLeave() {
     this.resetState();
 
-    if(this.modalController.getTop() !== null) {
-      this.modalController.dismiss();
-    }
+    this.modalController.getTop().then(t => {
+      if (t !== undefined) {
+        this.modalController.dismiss();
+      }
+    })
   }
 
 }

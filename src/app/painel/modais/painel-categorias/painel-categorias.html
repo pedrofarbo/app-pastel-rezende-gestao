@@ -1,0 +1,13 @@
+<ion-card *ngFor="let categoria of categorias">
+    <ion-card-header>
+        <ion-card-title>
+           {{categoria.nome}}
+        </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+        <div class="card-content" *ngIf="categoria.descricao">
+            <div>{{categoria?.descricao}}</div>
+        </div>
+    </ion-card-content>
+</ion-card>

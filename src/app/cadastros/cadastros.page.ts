@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IonRouterOutlet, ModalController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastros',
@@ -40,8 +41,8 @@ export class CadastrosPage {
   isHorariosOpened: boolean = false;
   isHorariosAddModalOpened: boolean = false;
 
-
-  constructor(public routerOutlet: IonRouterOutlet, private modalController: ModalController) {}
+  constructor(public routerOutlet: IonRouterOutlet, private modalController: ModalController) {
+  }
 
   showFeiras() {
     if (!this.isFeirasOpened) {

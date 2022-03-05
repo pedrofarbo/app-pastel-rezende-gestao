@@ -27,14 +27,11 @@ export class CadastrarEstoque implements OnInit {
     }
 
     save() {
-        console.log(this.estoque);
         this.presentToast();
         this.modalController.dismiss();
     }
 
     validateNumber(type: any, n: number) {
-        console.log(n);
-
         if(type == 'valor' && n < 0) {
             this.estoque.valor = null;
         } else if(type == 'quantidade' && n < 0) {

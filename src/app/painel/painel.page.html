@@ -94,3 +94,72 @@
     </ion-content>
   </ng-template>
 </ion-modal>
+
+<ion-modal [isOpen]="isModalFuncionariosOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Funcionários</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <app-painel-funcionarios></app-painel-funcionarios>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [isOpen]="isModalCategoriasOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Categorias</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <app-painel-categorias></app-painel-categorias>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+
+<ion-modal [isOpen]="isModalEstoqueOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Estoque ao vivo</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <app-painel-estoque></app-painel-estoque>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [isOpen]="isModalHorariosOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Horários</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <app-painel-horarios></app-painel-horarios>
+    </ion-content>
+  </ng-template>
+</ion-modal>

@@ -1,0 +1,30 @@
+<ion-item>
+    <ion-label class="select-label">Filtrar por feira:</ion-label>
+    <ion-select placeholder="Todas" (ionChange)="filtrarEstoque($event.target.value)" okText="Selecionar"
+        cancelText="Fechar">
+        <ion-select-option value="todos">Todas</ion-select-option>
+        <ion-select-option value="1">Feira geral de Cajamar</ion-select-option>
+        <ion-select-option value="2">Feira geral de Santana de Parnaíba</ion-select-option>
+        <ion-select-option value="3">Feira noturna do Polvilho</ion-select-option>
+    </ion-select>
+</ion-item>
+
+<ion-card *ngFor="let estoque of estoqueList">
+    <ion-card-header>
+        <ion-card-subtitle class="display-center">
+            <ion-badge [ngStyle]="{'background-color': getColor(estoque)}">Quantidade: {{estoque?.quantidade}}</ion-badge>
+        </ion-card-subtitle>
+
+        <ion-card-title>
+            {{estoque?.produto?.nome}}
+        </ion-card-title>
+
+        <ion-badge style="margin-top: 5px;" color="primary">Categoria: {{estoque?.categoria?.nome}}</ion-badge>
+    </ion-card-header>
+
+    <ion-card-content>
+        <div class="card-content">
+            <div><b>Local:</b> {{estoque?.feira?.nome}}</div>
+        </div>
+    </ion-card-content>
+</ion-card>
