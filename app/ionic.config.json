@@ -1,0 +1,10 @@
+{
+  "name": "pastel-rezende-gestao",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

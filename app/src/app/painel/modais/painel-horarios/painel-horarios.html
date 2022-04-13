@@ -1,0 +1,26 @@
+<ion-item>
+    <ion-label class="select-label">Filtrar por feira:</ion-label>
+    <ion-select placeholder="Todas" (ionChange)="filtrarHorarios($event.target.value)" okText="Selecionar"
+        cancelText="Fechar">
+        <ion-select-option value="todos">Todas</ion-select-option>
+        <ion-select-option value="1">Feira geral de Cajamar</ion-select-option>
+        <ion-select-option value="2">Feira geral de Santana de Parnaíba</ion-select-option>
+        <ion-select-option value="3">Feira noturna do Polvilho</ion-select-option>
+    </ion-select>
+</ion-item>
+
+<ion-card *ngFor="let horario of horarios">
+    <ion-card-header>
+        <ion-card-title>
+            {{horario?.descricao}}
+        </ion-card-title>
+
+        <ion-badge style="margin-top: 5px;" color="primary">Horário: {{horario?.hora}}:{{horario?.minuto}}</ion-badge>
+    </ion-card-header>
+
+    <ion-card-content>
+        <div class="card-content">
+            <div><b>Local:</b> {{horario?.feira?.nome}}</div>
+        </div>
+    </ion-card-content>
+</ion-card>

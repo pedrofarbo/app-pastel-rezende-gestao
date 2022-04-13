@@ -1,0 +1,80 @@
+<ion-item lines="full" (click)="goToCadastro()">
+    <ion-buttons>
+        <ion-icon slot="start" name="add"></ion-icon>
+        <ion-button>Adicionar nova venda</ion-button>
+    </ion-buttons>
+</ion-item>
+
+<ion-item>
+    <ion-label class="select-label">Filtrar por feira:</ion-label>
+    <ion-select placeholder="Todas" (ionChange)="filtrarVendas($event.target.value)" okText="Selecionar"
+        cancelText="Fechar">
+        <ion-select-option value="todos">Todas</ion-select-option>
+        <ion-select-option value="1">Feira geral de Cajamar</ion-select-option>
+        <ion-select-option value="2">Feira geral de Santana de Parnaíba</ion-select-option>
+        <ion-select-option value="3">Feira noturna do Polvilho</ion-select-option>
+    </ion-select>
+</ion-item>
+
+<ion-card *ngFor="let venda of vendas">
+    <ion-card-header>
+        <ion-card-subtitle class="display-center">
+            <ion-badge [ngStyle]="{'background-color': getColor(venda)}">{{venda?.status}}</ion-badge>
+        </ion-card-subtitle>
+
+        <ion-card-title>
+            Venda N°{{venda?.id}}
+        </ion-card-title>
+
+        <ion-badge style="margin-top: 5px;" color="primary">Total: R${{venda?.total}}</ion-badge>
+    </ion-card-header>
+
+    <ion-card-content>
+        <div class="card-content">
+            <div><b>Local:</b> {{venda?.feira.nome}}</div>
+        </div>
+
+        <br />
+
+        <div class="btn-div">
+            <ion-button (click)="openModalProdutos(venda)" style="margin-right: 5px">
+                <ion-icon slot="icon-only" name="list-outline"></ion-icon>
+            </ion-button>
+
+            <ion-button (click)="openAlert(venda)">
+                <ion-icon slot="icon-only" name="build-outline"></ion-icon>
+            </ion-button>
+        </div>
+    </ion-card-content>
+</ion-card>
+
+<ion-modal [isOpen]="isModalProdutosOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+    <ng-template>
+        <ion-header translucent>
+            <ion-toolbar>
+                <ion-title>Itens do Pedido</ion-title>
+                <ion-buttons slot="end">
+                    <ion-button (click)="closeModal()">Fechar</ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-header>
+
+        <ion-content>
+            <ion-list>
+                <ion-item *ngFor="let produto of venda.produtos" lines="full">
+                    <ion-label>
+                        {{produto.quantidade}}x - {{produto.nome}} - R${{produto.valor}}
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+
+            <br />
+
+            <ion-item lines="full">
+                <ion-label>
+                    Total do Pedido: <b>R${{venda.total}}</b>
+                </ion-label>
+            </ion-item>
+        </ion-content>
+    </ng-template>
+</ion-modal>

@@ -1,0 +1,29 @@
+<ion-card *ngFor="let feira of feiras">
+    <ion-card-header>
+        <ion-card-subtitle class="display-center">
+            <ion-badge [ngStyle]="{'background-color': getColor(feira)}">{{feira?.status}}</ion-badge>
+        </ion-card-subtitle>
+
+        <ion-card-title>
+            {{feira?.nome}}
+        </ion-card-title>
+
+        <ion-badge style="margin-top: 5px;" color="primary">Responsável: {{feira?.responsavel}}</ion-badge>
+    </ion-card-header>
+
+    <ion-card-content>
+        <div class="card-content">
+            <div><b>Endereço:</b> {{feira?.endereco}}</div>
+        </div>
+
+        <div class="btn-div">
+            <ion-button (click)="goToCadastro(feira)" style="margin-right: 5px">
+                <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+            </ion-button>
+
+            <ion-button (click)="openAlert(feira)">
+                <ion-icon slot="icon-only" name="build-outline"></ion-icon>
+            </ion-button>
+        </div>
+    </ion-card-content>
+</ion-card>

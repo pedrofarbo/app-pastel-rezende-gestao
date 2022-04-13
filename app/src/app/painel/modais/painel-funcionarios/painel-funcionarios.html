@@ -1,0 +1,17 @@
+<ion-card *ngFor="let funcionario of funcionarios">
+    <ion-card-header>
+        <ion-card-subtitle class="display-center">
+            <ion-badge color="primary">Freela: {{funcionario.freela ? 'Sim' : 'Não'}}</ion-badge>
+        </ion-card-subtitle>
+
+        <ion-card-title>
+           {{funcionario.nome}}
+        </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+        <div class="card-content" *ngIf="funcionario.descricao">
+            <div><b>Obs:</b> {{funcionario?.descricao}}</div>
+        </div>
+    </ion-card-content>
+</ion-card>

@@ -1,0 +1,316 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Cadastros
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="divider-menu"></div>
+
+  <ion-item (click)="showFeiras()" *ngIf="!isFeirasOpened">
+    <ion-icon name="chevron-up-outline" slot="start"></ion-icon>
+    Feiras
+    <ion-badge color="primary" slot="end">{{totalFeiras}} +</ion-badge>
+  </ion-item>
+
+  <ion-item (click)="showFeiras()" *ngIf="isFeirasOpened">
+    <ion-icon name="chevron-down-outline" slot="start"></ion-icon>
+    Feiras
+    <ion-badge color="primary" slot="end">{{totalFeiras}} +</ion-badge>
+  </ion-item>
+
+  <ion-list style="margin-left: 55px; margin-top: 6px;" *ngIf="isFeirasOpened">
+    <ion-item (click)="showFeiraAddModal()">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Cadastrar
+    </ion-item>
+
+    <ion-item (click)="showFeiraEditModal()">
+      <ion-icon name="create" slot="start"></ion-icon>
+      Editar
+    </ion-item>
+
+    <ion-item (click)="showFeiraDeleteModal()">
+      <ion-icon name="trash" slot="start"></ion-icon>
+      Desativar
+    </ion-item>
+  </ion-list>
+
+  <ion-item (click)="showVendas()" *ngIf="!isVendasOpened">
+    <ion-icon name="chevron-up-outline" slot="start"></ion-icon>
+    Vendas
+    <ion-badge color="primary" slot="end">{{totalVendas}} +</ion-badge>
+  </ion-item>
+
+  <ion-item (click)="showVendas()" *ngIf="isVendasOpened">
+    <ion-icon name="chevron-down-outline" slot="start"></ion-icon>
+    Vendas
+    <ion-badge color="primary" slot="end">{{totalVendas}} +</ion-badge>
+  </ion-item>
+
+  <ion-list style="margin-left: 55px; margin-top: 6px;" *ngIf="isVendasOpened">
+    <ion-item (click)="showVendasAddModal()">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Cadastrar
+    </ion-item>
+
+    <ion-item (click)="openModalVendas()">
+      <ion-icon name="create" slot="start"></ion-icon>
+      Editar
+    </ion-item>
+  </ion-list>
+
+  <ion-item (click)="showFuncionarios()" *ngIf="!isFuncionariosOpened">
+    <ion-icon name="chevron-up-outline" slot="start"></ion-icon>
+    Funcionários
+    <ion-badge color="primary" slot="end">{{totalFuncionarios}} +</ion-badge>
+  </ion-item>
+
+  <ion-item (click)="showFuncionarios()" *ngIf="isFuncionariosOpened">
+    <ion-icon name="chevron-down-outline" slot="start"></ion-icon>
+    Funcionários
+    <ion-badge color="primary" slot="end">{{totalFuncionarios}} +</ion-badge>
+  </ion-item>
+
+  <ion-list style="margin-left: 55px; margin-top: 6px;" *ngIf="isFuncionariosOpened">
+    <ion-item (click)="showFuncionariosAddModal()">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Cadastrar
+    </ion-item>
+
+    <ion-item (click)="openModalFuncionarios()">
+      <ion-icon name="create" slot="start"></ion-icon>
+      Editar
+    </ion-item>
+
+    <ion-item (click)="openModalFuncionarios()">
+      <ion-icon name="trash" slot="start"></ion-icon>
+      Desativar
+    </ion-item>
+  </ion-list>
+
+  <ion-item (click)="showCategorias()" *ngIf="!isCategoriasOpened">
+    <ion-icon name="chevron-up-outline" slot="start"></ion-icon>
+    Categorias
+    <ion-badge color="primary" slot="end">{{totalCategorias}} +</ion-badge>
+  </ion-item>
+
+  <ion-item (click)="showCategorias()" *ngIf="isCategoriasOpened">
+    <ion-icon name="chevron-down-outline" slot="start"></ion-icon>
+    Categorias
+    <ion-badge color="primary" slot="end">{{totalCategorias}} +</ion-badge>
+  </ion-item>
+
+  <ion-list style="margin-left: 55px; margin-top: 6px;" *ngIf="isCategoriasOpened">
+    <ion-item (click)="showCategoriasAddModal()">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Cadastrar
+    </ion-item>
+
+    <ion-item (click)="showCategoriasEditModal()">
+      <ion-icon name="create" slot="start"></ion-icon>
+      Editar
+    </ion-item>
+
+    <ion-item (click)="showCategoriasDeleteModal()">
+      <ion-icon name="trash" slot="start"></ion-icon>
+      Desativar
+    </ion-item>
+  </ion-list>
+
+  <ion-item (click)="showEstoque()" *ngIf="!isEstoqueOpened">
+    <ion-icon name="chevron-up-outline" slot="start"></ion-icon>
+    Estoque
+    <ion-badge color="primary" slot="end">{{totalEstoque}} +</ion-badge>
+  </ion-item>
+
+  <ion-item (click)="showEstoque()" *ngIf="isEstoqueOpened">
+    <ion-icon name="chevron-down-outline" slot="start"></ion-icon>
+    Estoque
+    <ion-badge color="primary" slot="end">{{totalEstoque}} +</ion-badge>
+  </ion-item>
+
+  <ion-list style="margin-left: 55px; margin-top: 6px;" *ngIf="isEstoqueOpened">
+    <ion-item (click)="showEstoqueAddModal()">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Cadastrar
+    </ion-item>
+
+    <ion-item (click)="openModalEstoque()">
+      <ion-icon name="create" slot="start"></ion-icon>
+      Editar
+    </ion-item>
+
+    <ion-item (click)="openModalEstoque()">
+      <ion-icon name="trash" slot="start"></ion-icon>
+      Desativar
+    </ion-item>
+  </ion-list>
+
+  <ion-item (click)="showHorarios()" *ngIf="!isHorariosOpened">
+    <ion-icon name="chevron-up-outline" slot="start"></ion-icon>
+    Horários
+    <ion-badge color="primary" slot="end">{{totalHorarios}} +</ion-badge>
+  </ion-item>
+
+  <ion-item (click)="showHorarios()" *ngIf="isHorariosOpened">
+    <ion-icon name="chevron-down-outline" slot="start"></ion-icon>
+    Horários
+    <ion-badge color="primary" slot="end">{{totalHorarios}} +</ion-badge>
+  </ion-item>
+
+  <ion-list style="margin-left: 55px; margin-top: 6px;" *ngIf="isHorariosOpened">
+    <ion-item (click)="showHorariosAddModal()">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Cadastrar
+    </ion-item>
+
+    <ion-item (click)="openModalHorarios()">
+      <ion-icon name="create" slot="start"></ion-icon>
+      Editar
+    </ion-item>
+
+    <ion-item (click)="openModalHorarios()">
+      <ion-icon name="trash" slot="start"></ion-icon>
+      Excluir
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-modal [isOpen]="isFeiraAddModalOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Cadastrar feira</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <app-cadastrar-feira></app-cadastrar-feira>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [isOpen]="isFeiraEditModalOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Selecione uma feira para editar</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <app-editar-feira></app-editar-feira>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [isOpen]="isFeiraDeleteModalOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Selecione uma feira para deletar</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <app-deletar-feira></app-deletar-feira>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [isOpen]="isVendasAddModalOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Cadastrar venda</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <app-cadastrar-vendas></app-cadastrar-vendas>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [isOpen]="isFuncionariosAddModalOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Cadastrar funcionário</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <app-cadastrar-funcionarios></app-cadastrar-funcionarios>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [isOpen]="isCategoriasAddModalOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Cadastrar categoria</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <app-cadastrar-categorias></app-cadastrar-categorias>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [isOpen]="isEstoqueAddModalOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Cadastrar estoque</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <app-cadastrar-estoque></app-cadastrar-estoque>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [isOpen]="isHorariosAddModalOpened" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Cadastrar horário</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <app-cadastrar-horarios></app-cadastrar-horarios>
+    </ion-content>
+  </ng-template>
+</ion-modal>

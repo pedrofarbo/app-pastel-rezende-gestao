@@ -1,0 +1,44 @@
+<div class="modal-content">
+    <div class="divider"></div>
+
+    <ion-item>
+        <ion-label position="stacked">Nome da Feira: (*)</ion-label>
+        <ion-input required="true" autofocus="true" clearInput [(ngModel)]="feira.nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Descrição da Feira:</ion-label>
+        <ion-input clearInput [(ngModel)]="feira.descricao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Endereço: (*)</ion-label>
+        <ion-input required="true" clearInput [(ngModel)]="feira.endereco"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label class="select-label">Responsável: (*)</ion-label>
+        <ion-select [(ngModel)]="feira.responsavel" okText="Selecionar" cancelText="Fechar">
+            <ion-select-option value="brown">Pedro</ion-select-option>
+            <ion-select-option value="blonde">Carlos</ion-select-option>
+            <ion-select-option value="black">João</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Observações:</ion-label>
+        <ion-input clearInput [(ngModel)]="feira.obs"></ion-input>
+    </ion-item>
+
+    <div class="divider"></div>
+
+    <ion-label class="warning-msg" *ngIf="!feira.nome || !feira.endereco || !feira.responsavel">Os campos com * são
+        obrigatórios.
+    </ion-label>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button [disabled]="!feira.nome || !feira.endereco || !feira.responsavel" (click)="save()">
+            <ion-icon name="save"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</div>
